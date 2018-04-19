@@ -1,6 +1,9 @@
+.DS_Store
 
 logins.txt
 runstuff.sh
 
-GeoLite2-Ciry.mmdb
+
+GeoLite2-City.mmdb
+
 
