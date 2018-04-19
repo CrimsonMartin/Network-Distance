@@ -1,0 +1,39 @@
+dest hostname: www.amazon.com    dest ip: 104.112.42.112
+try: 0hops: 10
+time(ms): 200
+message returned: 576/1500 bytes
+
+dest hostname: www.youtube.com    dest ip: 172.217.5.14
+try: 0unknown response recieved
+
+dest hostname: www.google.com    dest ip: 216.58.192.132
+try: 0unknown response recieved
+
+dest hostname: www.instagram.com    dest ip: 31.13.69.174
+try: 0try: 1try: 2try: 3try: 4www.instagram.com no response recieved
+
+dest hostname: www.reddit.com    dest ip: 151.101.185.140
+try: 0hops: 14
+time(ms): 58
+message returned: 576/1500 bytes
+
+dest hostname: www.purple.com    dest ip: 104.20.56.235
+try: 0try: 1try: 2try: 3try: 4www.purple.com no response recieved
+
+dest hostname: www.weather.com    dest ip: 23.49.188.134
+try: 0hops: 10
+time(ms): 65
+message returned: 576/1500 bytes
+
+dest hostname: www.stackoverflow.com    dest ip: 151.101.1.69
+try: 0hops: 14
+time(ms): 58
+message returned: 576/1500 bytes
+
+dest hostname: www.case.edu    dest ip: 129.22.12.21
+try: 0unknown response recieved
+
+dest hostname: www.wikipedia.org    dest ip: 208.80.154.224
+try: 0try: 1try: 2try: 3try: 4www.wikipedia.org no response recieved
+
+
