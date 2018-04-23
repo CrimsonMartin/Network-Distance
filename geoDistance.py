@@ -12,9 +12,9 @@ def main():
 
     for line in targets:
         host_name = line.split()[0]
-        print("")
-        compute_geo_distance(host_name)
 
+        compute_geo_distance(host_name)
+        print("")
 
     targets.close()
 
@@ -33,14 +33,17 @@ def get_geo_coordinates(ip):
         reader.close()
     return lat,lon
 
-#copied from https://stackoverflow.com/questions/2311510/getting-a-machines-external-ip-address-with-python
-#don't ask how it works, I have no clue but it does indeed give back an ip so ya know
+#copied from https://stackoverflow.com/questions/166506/finding-local-ip-addresses-using-pythons-stdlib
+#asks for my ip from google's DNS server
 def my_ip():
-    import urllib.request
-    return urllib.request.urlopen('https://ident.me').read().decode('utf8')
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    num = s.getsockname()[0]
+    s.close()
+    return num
 
 #taken from https://www.w3resource.com/python-exercises/math/python-math-exercise-27.php
-#again not sure how it works
+#not sure how it works
 def haversine(lat, lon, dest_lat, dest_lon):
     lat_int = int(lat)
     lon_int = int(lon)
