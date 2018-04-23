@@ -21,6 +21,8 @@ max_timeout = .3
 destination_portnum = 33434
 #sticks this guy onto the packets we send
 messageHeader = 'measurement for class project. questions to student maf152@case.edu or professor mxr136@case.edu'
+#my case id, for checking the return packet
+case_id = 'maf152'
 
 def main():
     global target_file
@@ -51,7 +53,8 @@ def time_in_ms (end_time, start_time):
 #can't use ip and portnumber since many people are using the vm
 def is_valid_response(response):
     #check it came from me
-    return 'maf152@case.edu' in response
+    global case_id
+    return case_id in response
 
 
 #measure the hops to get to target_host_name
@@ -77,6 +80,7 @@ def measure_hops(destination_host_name):
     listener = socket.socket(socket.AF_INET, socket.SOCK_RAW,  socket.IPPROTO_ICMP)
     #wait max_timeout for a response(in seconds)
     listener.settimeout(max_timeout)
+
     finished = False
     tries = 0
     data = None
@@ -90,7 +94,7 @@ def measure_hops(destination_host_name):
 
         try:
 
-            data = listener.recv(1500)
+            data = listener.recv(MTU)
             end_time = time.time()
             finished = True
 
@@ -120,7 +124,6 @@ def measure_hops(destination_host_name):
     print("hops: %d" % hops)
     print("time(ms): %d" % time)
     #strip return header and get the length of the rest of the packet (udp -> 20 + 8 = 28)
-    global MTU
 
     print("message returned: %d/%d bytes" %((len(data)), MTU))
 
