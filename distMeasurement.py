@@ -51,7 +51,6 @@ def time_in_ms (end_time, start_time):
 #can't use ip and portnumber since many people are using the vm
 def is_valid_response(response):
     #check it came from me
-    print (response)
     return 'maf152@case.edu' in response
 
 
@@ -70,7 +69,7 @@ def measure_hops(destination_host_name):
 
     message = make_message()
 
-    #create sender socket using udp protocol and a ttl of 50- assuming this is high enough to reach wherever we're going
+    #create sender socket using udp protocol and a ttl of 32- assuming this is high enough to reach wherever we're going
     sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     sender.setsockopt(socket.SOL_IP, socket.IP_TTL, ttl)
 
